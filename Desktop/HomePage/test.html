@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <th>
+            <tr id="elementid">
+
+            </tr>
+        </th>
+    </table>
+</body>
+</html>
+
+<script type="module">
+    var btn = document.createElement('button');
+    btn.innerHTML = '<input type="button" value="Save" name="save" id="save" style="height: 40px; width: 150px; background-color: #00B6FF; float: right; color: #ffffff; font-weight: bold" onclick="getid(' + srNo + ', ' + present + ', ' + un + ');"></button>';
+
+    var elementid = document.getElementById("elementid");
+    elementid.appendChild(btn);
+</script>

@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<title>Update Salary</title>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https:/cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./style.css">
+
+    <style>
+        html {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            /* display: flex; */
+            /* height: 200vh; */
+            z-index: 1;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            font-family: poppins, fontawesome;
+            /* padding:10px; */
+        }
+
+        h1 {
+            padding: 0%;
+            margin-bottom: 0%;
+
+        }
+
+        .container {
+            margin-top: 20px;
+            display: flex;
+            /* height: 200vh; */
+            justify-content: center;
+            align-items: center;
+            /* background-color: rgb (0,0,0); */
+            /* background-color: rgb(0,0,0, 0.4); */
+        }
+
+        .container2 {
+            padding: 16px;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 83px;
+            background-color: #00B6FF;
+            width: 100%;
+        }
+
+        li {
+            padding-right: 0;
+            padding-left: 50px;
+            padding-top: 28px;
+            padding-bottom: 28px;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .button1:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        i {
+            margin-left: 5px;
+            padding-top: 2px;
+            margin-right: 20px;
+        }
+
+
+        .container1 {
+            max-width: 800px;
+            width: 100%;
+            background: #FFFFFF;
+            padding: 25px 30px;
+            border-radius: 5px;
+        }
+
+        .container1 .title {
+            font-size: 25px;
+            font-weight: 1000;
+            text-decoration: underline;
+        }
+
+        .container1 form .basic-details {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 10px;
+            /* border:10px; */
+        }
+
+        form .basic-details .input-box {
+            margin: 10px 0 10px 0;
+            width: calc(100% / 2 - 20px);
+        }
+
+
+        .container2 input {
+            height: 45px;
+            width: 100%;
+            /* padding:10px; */
+            font-family: poppins;
+            border: none;
+            background-color: #f1f1f1;
+        }
+
+
+        .searchbar {
+            margin-top: 3%;
+            height: 30px;
+            display: flex;
+            border-radius: 60px;
+            padding: 10px 30px;
+            font-weight: 600;
+            border: none;
+            background-color: #f1f1f1;
+        }
+
+        .searchbar input {
+            background: transparent;
+            flex: 1;
+            border: 0;
+            outline: none;
+        }
+
+        .searchbar button img {
+            width: 20px;
+        }
+
+        .searchbar button {
+            border: 0;
+            border-radius: 50%;
+            width: auto;
+            margin: 0%;
+            padding: 0%;
+            width: 30px;
+            height: 30px;
+            /* background:#58629b; */
+            cursor: pointer;
+            float: right;
+        }
+
+
+        form .basic-details .input-box .details {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 1000;
+        }
+
+        .basic-details .input-box input {
+            height: 45px;
+            width: 100%;
+            /* padding:10px; */
+            font-family: poppins;
+            border: none;
+            background-color: #f1f1f1;
+
+        }
+
+
+        hr {
+            border: 1px solid #f1f1f1;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #00B6FF;
+            border-radius: 5px;
+            color: white;
+            padding: 16px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /*Black w/ opacity */
+            padding-top: 15%;
+        }
+
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto 15% auto;
+            /* 5% from the top, 15% from the bottom and centered */
+            border: 1px solid #888;
+            width: 80%;
+            /* Could be more or less, depending on screen size */
+        }
+
+        /* The Close Button (x) */
+        .close {
+            position: absolute;
+            right: 25px;
+            top: 0;
+            color: #000;
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: red;
+            cursor: pointer;
+        }
+
+        /* Add Zoom Animation */
+        .animate {
+            -webkit-animation: animatezoom 0.6s;
+            animation: animatezoom 0.6s
+        }
+
+        @-webkit-keyframes animatezoom {
+            from {
+                -webkit-transform: scale(0)
+            }
+
+            to {
+                -webkit-transform: scale(1)
+            }
+        }
+
+        @keyframes animatezoom {
+            from {
+                transform: scale(0)
+            }
+
+            to {
+                transform: scale(1)
+            }
+        }
+
+        /* Change styles for span and cancel button on extra small screens */
+        @media screen and (max-width: 300px) {
+            span.psw {
+                display: block;
+                float: none;
+            }
+
+            .cancelbtn {
+                width: 100%;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <ul>
+        <li style="float:left; padding: 0;"><a href="index.html"
+                style="width:fit-content; padding: 0%; background-color: #fff;"><img src="./images/logo.png"
+                    alt="JacksonLogo" width="300" height="83" margin="0"></a></li>
+        <li style="float: right"><a href="login.html" style="font-size: 20px;">Logout<i
+                    class="fa fa-sign-out fa-lg"></i></a></li>
+
+    </ul>
+    <!-- ///////////////////////////////////////////////////////BASIC-DETAILS///////////////////////////////////////////////// -->
+    <div class="container">
+        <div class="container1">
+            <div class="searchbar" style="display: block;">
+                <input type="text" id="username" class="search-bar" placeholder=" &#xf002;  Enter Username"
+                    style="font-family: fontawesome, poppins" required>
+                <button type="button" id="save"><img src="./images/search.png"></button>
+            </div>
+            <br>
+            <hr>
+            <br>
+            <form action="">
+                <div class="basic-details">
+
+                    <div class="input-box">
+                        <span class="details">First Name</span>
+                        <input type="text" id="fn" method="post" disabled="disabled">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Last Name</span>
+                        <input type="text" id="ln" method="post" disabled="disabled">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Basic Salary</span>
+                        <input type="text" id="salary" method="post">
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">PF Number</span>
+                        <input type="text" id="pf" method="post" disabled="disabled">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Account Number</span>
+                        <input type="text" id="acc" method="post" disabled="disabled">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">UAN</span>
+                        <input type="text" id="uan" method="post" disabled="disabled">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">ESI Number</span>
+                        <input type="text" id="esi" method="post" disabled="disabled">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">PAN Number</span>
+                        <input type="text" id="pan" method="post" disabled="disabled">
+                    </div>
+                    <button type="button" id="cancel"
+                        style="display: inline; text-align: center; margin-top: 3%; font-weight: 600;">
+                        Cancel
+                    </button>
+                    <div class="adduser" style="width: 100%;">
+
+                        <button type="button"
+                            style="display: inline; text-align: center; margin-top: 3%; font-weight: 600;"
+                            onclick="document.getElementById('id01').style.display='block'">
+                            Update Salary
+                        </button>
+                        <div id="id01" class="modal">
+                            <form class="modal-content animate" name="myform">
+                                <div class="imgcontainer">
+                                    <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                                        title="Close Modal">&times;</span>
+                                </div>
+
+                                <center>
+                                    <div class="container2"
+                                        style="display: block; background-color: white; width: 65.5%;">
+                                        <label for="psw"><b>Password</b></label>
+                                        <input type="password" placeholder="Enter Password" name="psw" id="psw"
+                                            method="post" required>
+                                        <hr>
+                                        <button type="button" id="submit" class="registerbtn">Authenticate</button>
+                                    </div>
+                                </center>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <br>
+            <hr>
+            <br>
+            <!-- ///////////////////////////////////////////////////////FAMILY-DETAILS///////////////////////////////////////////////// -->
+            <!-- ///////////////////////////////////////////////////////FATHER-DETAILS///////////////////////////////////////////////// -->
+        </div>
+    </div>
+</body>
+
+<!-- <script src="https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js"></script> -->
+
+<script type="module">
+
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+    import {
+        getAuth,
+        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword,
+        signOut
+    } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+    import { getDatabase, get, set, ref, update, child } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyD9yGArkz7oubGAtVO2FbwThGikxhJY3hw",
+        authDomain: "trialproject-9f7bf.firebaseapp.com",
+        databaseURL: "https://trialproject-9f7bf-default-rtdb.firebaseio.com",
+        projectId: "trialproject-9f7bf",
+        storageBucket: "trialproject-9f7bf.appspot.com",
+        messagingSenderId: "188371728581",
+        appId: "1:188371728581:web:f22681635b4def702098ac",
+        measurementId: "G-BCN320ENDH"
+    };
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth();
+    const database = getDatabase(app);
+
+    var fn = document.getElementById('fn');
+    var ln = document.getElementById('ln');
+    var pf = document.getElementById('pf');
+    var acc = document.getElementById('acc');
+    var uan = document.getElementById('uan');
+    var esi = document.getElementById('esi');
+    var pan = document.getElementById('pan');
+    var salary = document.getElementById('salary');
+    var psw = document.getElementById('psw');
+
+    var save = document.getElementById('save');
+    var submit = document.getElementById('submit');
+    var cancel = document.getElementById('cancel');
+
+    function redirect(){
+          window.location = './index.html'
+        }
+        
+    function show_user() {
+
+        const dbref = ref(database);
+
+        get(child(dbref, "users/" + username.value)).then((snapshot) => {
+            if (snapshot.exists()) {
+                // username: username.value,
+                fn.value = snapshot.val().fn,
+                    ln.value = snapshot.val().ln,
+                    acc.value = snapshot.val().acc,
+                    pf.value = snapshot.val().pf,
+                    uan.value = snapshot.val().uan,
+                    esi.value = snapshot.val().esi,
+                    pan.value = snapshot.val().pan,
+                    salary.value = snapshot.val().salary
+
+            }
+            else {
+                alert("No data found");
+            }
+        })
+            .catch((error) => {
+                alert(error);
+            });
+    }
+
+    function update_salary() {
+        if(psw.value == "JackAd_77"){
+            update(ref(database, "users/" + username.value), {
+            salary: salary.value
+        })
+        .then(() => {
+                alert("updated salary!");
+                window.location = "./index.html";
+            })
+            .catch((error) => {
+                alert(error);
+            });
+        }
+        else{
+            alert("Unauthorized attempt to update salary!");
+            window.location = "./index.html";
+        }
+            
+    }
+
+    save.addEventListener('click', show_user);
+    submit.addEventListener('click', update_salary);
+    cancel.addEventListener('click', redirect);
+
+
+</script>
+
+</html>

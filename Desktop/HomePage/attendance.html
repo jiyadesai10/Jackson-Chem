@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Attendance Dashboard</title>
+  <link rel="stylesheet" href="./attendance.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+    /*  import google fonts */
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+    * {
+      margin: 0;
+      padding: 0;
+      outline: none;
+      border: none;
+      text-decoration: none;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: rgb(226, 226, 226);
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      bottom: 0;
+      height: 100vh;
+      left: 0;
+      width: 90px;
+      /* width: 280px; */
+      background: #fff;
+      overflow: hidden;
+      transition: 1s;
+    }
+
+    nav:hover {
+      width: 280px;
+      transition: 1s;
+    }
+
+    .logo {
+      text-align: center;
+      display: flex;
+      margin: 10px 0 0 10px;
+      padding-bottom: 3rem;
+    }
+
+    .logo img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+    }
+
+    .logo span {
+      font-weight: bold;
+      padding-left: 15px;
+      font-size: 18px;
+      text-transform: uppercase;
+    }
+
+    /* a{
+  position: relative;
+  width: 280px;
+  font-size: 14px;
+  color: rgb(85, 83, 83);
+  display: table;
+  padding: 10px;
+} */
+    nav .fas {
+      position: relative;
+      width: 70px;
+      height: 40px;
+      top: 20px;
+      font-size: 20px;
+      text-align: center;
+    }
+
+    .nav-item {
+      position: relative;
+      top: 12px;
+      margin-left: 10px;
+    }
+
+    /* a:hover{
+  background: #eee;
+} */
+    /* a:hover i{
+  color: #00B6FF;
+  transition: 0.5s;
+} */
+    .logout {
+      position: absolute;
+      bottom: 0;
+    }
+
+    .container {
+      display: flex;
+    }
+
+    /* MAin Section */
+    .main {
+      position: relative;
+      padding: 20px;
+      width: 100%;
+    }
+
+    .main-top {
+      display: flex;
+      width: 100%;
+    }
+
+    .main-top i {
+      position: absolute;
+      right: 0;
+      margin: 10px 30px;
+      color: rgb(110, 109, 109);
+      cursor: pointer;
+    }
+
+    .main .users {
+      display: flex;
+      width: 100%;
+    }
+
+    /*Attendance List serction  */
+    .attendance {
+      margin-top: 20px;
+      text-transform: capitalize;
+    }
+
+    .attendance-list {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+    }
+
+    .table {
+      border-collapse: collapse;
+      margin: 25px 0;
+      font-size: 15px;
+      min-width: 100%;
+      overflow: hidden;
+      border-radius: 5px 5px 0 0;
+    }
+
+    table thead tr {
+      color: #fff;
+      background: #00B6FF;
+      text-align: left;
+      font-weight: bold;
+    }
+
+    .table th,
+    .table td {
+      padding: 12px 15px;
+      text-align: center;
+    }
+
+    .table tbody tr {
+      border-bottom: 1px solid #ddd;
+    }
+
+    .table tbody tr:nth-of-type(odd) {
+      background: #f3f3f3;
+    }
+
+    .table tbody tr:last-of-type {
+      border-bottom: 2px solid #00B6FF;
+    }
+
+    .table button {
+      padding: 6px 20px;
+      border-radius: 10px;
+      color: black;
+      cursor: pointer;
+      background: transparent;
+      border: 1px solid #00B6FF;
+    }
+
+    .table button:hover {
+      background: #00B6FF;
+      color: #fff;
+      transition: 0.5rem;
+    }
+
+    input {
+      height: 30px;
+      width: 100%;
+      /* padding:10px; */
+      text-align: center;
+      border: none;
+      background-color: #f1f1f1;
+    }
+
+    /* Navbar CSS */
+
+    html {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      /* display: flex; */
+      /* height: 200vh; */
+      z-index: 1;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(0, 0, 0);
+      /* Fallback color */
+      background-color: rgba(0, 0, 0, 0.4);
+      font-family: poppins;
+      /* padding:10px; */
+    }
+
+    .container {
+      margin-top: 20px;
+      display: flex;
+      /* height: 200vh; */
+      justify-content: center;
+      align-items: center;
+      /* background-color: rgb (0,0,0); */
+      /* background-color: rgb(0,0,0, 0.4); */
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      height: 83px;
+      background-color: #00B6FF;
+      width: 100%;
+    }
+
+    li {
+      padding-right: 0;
+      padding-left: 50px;
+      padding-top: 28px;
+      padding-bottom: 28px;
+    }
+
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .button1:hover {
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    i {
+      margin-left: 5px;
+      padding-top: 2px;
+      margin-right: 20px;
+    }
+
+
+    button {
+      background-color: #00B6FF;
+      border-radius: 5px;
+      color: white;
+      padding: 16px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      opacity: 0.9;
+    }
+  </style>
+
+</head>
+
+<body>
+  <ul>
+    <li style="float:left; padding: 0;"><a href="index.html"
+        style="width:fit-content; padding: 0%; background-color: #fff;"><img src="./images/logo.png" alt="JacksonLogo"
+          width="300" height="85" margin="0"></a></li>
+    <li style="float: right; border: none;"><a href="login.html" style="font-size: 20px;">Logout<i
+          class="fa fa-sign-out fa-lg"></i></a></li>
+  </ul>
+  <div class="container">
+    <!-- <input type="button" value="Save"> -->
+    <section class="main">
+
+      <section class="attendance">
+        <div class="attendance-list">
+          <h1>Attendance List</h1>
+          <br>
+          <table class="table">
+            <input type="month" name="month" id="month">
+            <thead>
+              <th>Sr No.</th>
+              <th>Username</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Designation</th>
+              <th>Department</th>
+              <th>Attendance</th>
+              <th></th>
+            </thead>
+            <tbody id="tbody1">
+            </tbody>
+
+          </table>
+        </div>
+        <button type="button", id="submit", name="submit">Done</button>
+      </section>
+    </section>
+  </div>
+
+</body>
+
+</html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script type="module">
+
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.0/firebase-app.js";
+  import { getDatabase, ref, child, onValue, get, update } from "https://www.gstatic.com/firebasejs/9.12.0/firebase-database.js";
+  const firebaseConfig = {
+    apiKey: "AIzaSyD9yGArkz7oubGAtVO2FbwThGikxhJY3hw",
+    authDomain: "trialproject-9f7bf.firebaseapp.com",
+    databaseURL: "https://trialproject-9f7bf-default-rtdb.firebaseio.com",
+    projectId: "trialproject-9f7bf",
+    storageBucket: "trialproject-9f7bf.appspot.com",
+    messagingSenderId: "188371728581",
+    appId: "1:188371728581:web:f22681635b4def702098ac",
+    measurementId: "G-BCN320ENDH"
+  };
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
+
+  // function funcall(index, uname, pres) {
+  //   console.log(1)
+  //   alert(pres)
+  //   update(ref(database, "users/" + uname), {
+  //     present: pres
+  //   })
+  //     .then(() => {
+  //       alert("attendance updated!");
+  //     })
+  //     .catch((error) => {
+  //       alert(error);
+  //     });
+  // }
+
+  var srNo = 0;
+  var list = [];
+
+  var tbody = document.getElementById('tbody1')
+  function AddItemToTable(username, fn, ln, des, dep) {
+    let trow = document.createElement("tr");
+    let td1 = document.createElement('td');
+    let td2 = document.createElement('td');
+    let td3 = document.createElement('td');
+    let td4 = document.createElement('td');
+    let td5 = document.createElement('td');
+    let td6 = document.createElement('td');
+    let td7 = document.createElement('td');
+    let td8 = document.createElement('td');
+
+    var present = 0
+    var un = "\'" + username + "\'";
+    // var un = username
+    // alert(un);
+
+    td1.innerHTML = ++srNo;
+    td2.innerHTML = username;
+    td3.innerHTML = fn;
+    td4.innerHTML = ln;
+    td5.innerHTML = des;
+    td6.innerHTML = dep;
+    td7.innerHTML = '<input type="number" name="attendance" id="attendance" style="height: 40px; width: 40px; text-align: center; border-bottom: 1px solid grey; background-color: rgba(241, 241, 241, 0); ">';
+    // list.push([username, fn, ln, des, dep])
+    td8.innerHTML = '<input type="button" value="Save" name="save" id="save" style="height: 40px; width: 150px; background-color: #00B6FF; float: right; color: #ffffff; font-weight: bold" onclick="getid(' + srNo + ', ' + present + ', ' + un + ', ' + database + ');"></button>';
+
+    
+
+    trow.appendChild(td1);
+    trow.appendChild(td2);
+    trow.appendChild(td3);
+    trow.appendChild(td4);
+    trow.appendChild(td5);
+    trow.appendChild(td6);
+    trow.appendChild(td7);
+    trow.appendChild(td8);
+
+    // var present = td7.innerHTML.toString();
+
+
+    tbody.appendChild(trow);
+  }
+
+
+
+  function AddAllItemsToTable(users) {
+    srNo = 0;
+    tbody.innerHTML = "";
+    users.forEach(element => {
+      AddItemToTable(element.username, element.fn, element.ln, element.des, element.dep)
+    });
+  }
+
+
+  function GetAllDataRealtime() {
+    const dbRef = ref(database, "users");
+
+    onValue(dbRef, (snapshot) => {
+      var users = [];
+
+      snapshot.forEach(childSnapshot => {
+        users.push(childSnapshot.val());
+      });
+
+      AddAllItemsToTable(users);
+
+    })
+  }
+
+  window.onload = GetAllDataRealtime;
+
+</script>
+
+<script>
+   function getid(index, uname, pres) {
+    update(ref(database, "users/" + uname), {
+      present: pres
+    })
+      .then(() => {
+        alert("attendance updated!");
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  }
+</script>
+
+<script>
+  var sub = document.getElementById("submit");
+
+  function funct(){
+    alert("Updated successfully!");
+    window.location = "./index.html";
+  }
+
+  sub.addEventListener("click", funct)
+</script>

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<title>Delete User</title>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="./adduser.css"> -->
+  <link rel="stylesheet" href="https:/cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./style.css">
+
+  <style>
+    html{
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      /* display: flex; */
+      /* height: 200vh; */
+      z-index: 1;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(0, 0, 0);
+      /* Fallback color */
+      background-color: rgba(0, 0, 0, 0.4);
+      font-family: poppins, fontawesome;
+      /* padding:10px; */
+    }
+
+    h1{
+      padding:0%;
+      margin-bottom: 0%;
+
+    }
+
+    .container {
+      margin-top: 20px;
+      display: flex;
+      /* height: 200vh; */
+      justify-content: center;
+      align-items: center;
+      /* background-color: rgb (0,0,0); */
+      /* background-color: rgb(0,0,0, 0.4); */
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      height: 83px;
+      background-color: #00B6FF;
+      width: 100%;
+    }
+
+    li {
+      padding-right: 0;
+      padding-left: 50px;
+      padding-top: 28px;
+      padding-bottom: 28px;
+    }
+
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .button1:hover {
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    i {
+      margin-left: 5px;
+      padding-top: 2px;
+      margin-right: 20px;
+    }
+
+
+    .container1 {
+      max-width: 800px;
+      width: 100%;
+      background: #FFFFFF;
+      padding: 25px 30px;
+      border-radius: 5px;
+    }
+
+    .container1 .title {
+      font-size: 25px;
+      font-weight: 1000;
+      text-decoration: underline;
+    }
+
+    .container1 form .basic-details {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding:10px;
+      /* border:10px; */
+    }
+
+    form .basic-details .input-box {
+      margin: 10px 0 10px 0;
+      width: calc(100% / 2 - 20px);
+    }
+
+
+    .searchbar{
+      margin-top: 3%;
+      height: 30px;
+      display: flex;
+      border-radius: 60px;
+      padding: 10px 30px;
+      font-weight: 600;
+      border: none;
+      background-color: #f1f1f1;
+    }
+
+    .searchbar input{
+      background: transparent;
+      flex: 1;
+      border: 0;
+      outline: none;
+    }
+
+    .searchbar button img{
+      width: 20px;
+    }
+
+    .searchbar button{
+      border: 0;
+      border-radius: 50%;
+      width: auto;
+      margin: 0%;
+      padding: 0%;
+      width: 30px;
+      height: 30px;
+      /* background:#58629b; */
+      cursor: pointer;
+      float: right;
+    }
+    
+
+    form .basic-details .input-box .details {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 1000;
+    }
+
+    .basic-details .input-box input {
+      height: 45px;
+      width: 100%;
+      /* padding:10px; */
+      font-family: poppins;
+      border: none;
+      background-color: #f1f1f1;
+
+    }
+
+    form .gender-details .gender-title {
+      font-size: 16px;
+      font-weight: 1000;
+    }
+
+    form .gender-details .category {
+      display: flex;
+      width: 80%;
+      margin: 10px;
+      justify-content: space-between;
+    }
+
+    .gender-details .category label {
+      display: flex;
+      align-items: center;
+    }
+
+    .gender-details .category .dot {
+      height: 16px;
+      width: 16px;
+      background: white;
+      border-radius: 50%;
+      border-right: 10px;
+      border: 5px;
+    }
+
+    .container2 {
+      display: block;
+      /* width: 200%; */
+    }
+
+    .container2 .family {
+      display: flex;
+      flex: wrap;
+      justify-content: space-between;
+      padding: 10px;
+    }
+
+
+    .container2 form .father-details .details {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 1000;
+    }
+
+    form .father-details .input-box {
+      margin: 10px 0 10px 0;
+    }
+
+    .container2 form .father-details .input-box .details {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 1000;
+    }
+
+    .container2 .father-details .input-box input {
+      height: 45px;
+      width: 100%;
+      /* padding:10px; */
+      border: none;
+      background-color: #f1f1f1;
+
+    }
+
+    .container2 form .mother-details .details {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 1000;
+    }
+
+    form .mother-details .input-box {
+      margin: 10px 0 10px 0;
+    }
+
+    form .mother-details .input-box .details {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 1000;
+    }
+
+    .mother-details .input-box input {
+      height: 45px;
+      width: 100%;
+      /* padding:10px; */
+      border: none;
+      background-color: #f1f1f1;
+    }
+
+    .container2 form .child-details .details {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 1000;
+    }
+
+    form .child-details .input-box {
+      margin: 10px 0 10px 0;
+    }
+
+    form .child-details .input-box .details {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 1000;
+    }
+
+    .child-details .input-box input {
+      height: 45px;
+      width: 100%;
+      /* padding:10px; */
+      border: none;
+      background-color: #f1f1f1;
+    }
+
+    .container2 form .sibling-details .details {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 1000;
+    }
+
+    form .sibling-details .input-box {
+      margin: 10px 0 10px 0;
+    }
+
+    form .sibling-details .input-box .details {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 1000;
+    }
+
+    .sibling-details .input-box input {
+      height: 45px;
+      width: 100%;
+      /* padding:10px; */
+      border: none;
+      background-color: #f1f1f1;
+    }
+
+    .container3 {
+      width: 100%;
+      /* background: #00B6FF; */
+      /* padding: 25px 30px; */
+      border-radius: 5px;
+    }
+
+    .container3 .title {
+      font-size: 25px;
+      font-weight: 1000;
+      text-decoration: underline;
+    }
+
+    .container3 form .med-details {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      /* padding:10px; */
+      /* border:10px; */
+    }
+
+    form .med-details .input-box {
+      margin: 10px 0 10px 0;
+      width: calc(100% / 2 - 20px);
+    }
+
+    form .med-details .input-box .details {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 1000;
+    }
+
+    .med-details .input-box input {
+      height: 45px;
+      width: 100%;
+      /* padding:10px; */
+      border: none;
+      background-color: #f1f1f1;
+    }
+
+    hr {
+      border:1px solid #f1f1f1;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #00B6FF;
+      border-radius: 5px;
+      color: white;
+      padding: 16px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      opacity: 0.9;
+    }
+  </style>
+
+</head>
+
+<body>
+  <ul>
+    <li style="float:left; padding: 0;"><a href="index.html"
+        style="width:fit-content; padding: 0%; background-color: #fff;"><img src="./images/logo.png" alt="JacksonLogo"
+          width="300" height="83" margin="0"></a></li>
+    <li style="float: right"><a href="login.html" style="font-size: 20px;">Logout<i
+          class="fa fa-sign-out fa-lg"></i></a></li>
+
+  </ul>
+  <!-- ///////////////////////////////////////////////////////BASIC-DETAILS///////////////////////////////////////////////// -->
+  <div class="container">
+    <div class="container1">
+      <div class="searchbar" style="display: block;">
+        <input type="text" id="username" class="search-bar" placeholder= " &#xf002;  Enter Username" style="font-family: fontawesome, poppins" required>
+        <button type="button" id="save"><img src="./images/search.png"></button>
+      </div>
+        <br>
+        <hr>
+        <br>
+        <form>
+        <!-- <h1 style="display: block;">Basic Information</h1> -->
+        <div class="basic-details">
+          <div class="input-box">
+            <span class="details">First Name</span>
+            <input type="text" id="fn" placeholder="Enter Your FirstName" method="post" disabled="disabled">
+          </div>
+          <div class="input-box">
+            <span class="details">Last Name</span>
+            <input type="text" id="ln" placeholder="Enter Your LastName" method="post" disabled="disabled">
+          </div>
+          <div class="input-box">
+            <span class="details">Mobile Number</span>
+            <input type="text" id="mob" placeholder="Enter Your Mobile Number" method="post" disabled="disabled">
+          </div>
+          <div class="input-box">
+            <span class="details">Designation</span>
+            <input type="text" id="des" placeholder="Enter Designation" method="post" disabled="disabled">
+          </div>
+          <div class="input-box">
+            <span class="details">Department</span>
+            <input type="text" id="dep" placeholder="Enter Department" method="post" disabled="disabled">
+          </div>
+          <div class="input-box">
+            <span class="details">Date of joining</span>
+            <input type="date" id="doj" placeholder="Enter Date Of Joining" method="post" disabled="disabled">
+          </div>
+        </div>
+      </form>
+      <br>
+      <hr>
+      <br>
+        <button type="button" id="dltbtn" name="commit" action="./index.html" style="font-weight: 600; padding: 1%;">Delete</button>
+
+      </div>
+    </div>
+  </div>
+  <br>
+</body>
+
+<!-- <script src="https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js"></script> -->
+
+<script type="module">
+
+import {initializeApp} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+            import {
+                getAuth,
+                createUserWithEmailAndPassword,
+                signInWithEmailAndPassword,
+                signOut
+            } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+            import {getDatabase, get, set, ref, remove, update, child} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+        
+            const firebaseConfig = {
+                apiKey: "AIzaSyD9yGArkz7oubGAtVO2FbwThGikxhJY3hw",
+                authDomain: "trialproject-9f7bf.firebaseapp.com",
+                databaseURL: "https://trialproject-9f7bf-default-rtdb.firebaseio.com",
+                projectId: "trialproject-9f7bf",
+                storageBucket: "trialproject-9f7bf.appspot.com",
+                messagingSenderId: "188371728581",
+                appId: "1:188371728581:web:f22681635b4def702098ac",
+                measurementId: "G-BCN320ENDH"
+            };
+            const app = initializeApp(firebaseConfig);
+            const auth = getAuth();
+            const database = getDatabase(app);
+
+        var username = document.getElementById('username');
+        var fn = document.getElementById('fn');
+        var ln = document.getElementById('ln');
+        var des = document.getElementById('des');
+        var dep = document.getElementById('dep');
+        var doj = document.getElementById('doj');
+
+        var save = document.getElementById('save');
+        var dltbtn = document.getElementById('dltbtn');
+
+        function show_user(){
+
+          const dbref = ref(database);
+
+          get(child(dbref, "users/" + username.value)).then((snapshot)=>{
+            if(snapshot.exists()){
+                fn.value = snapshot.val().fn,
+                ln.value = snapshot.val().ln,
+                mob.value = snapshot.val().mob,
+                des.value = snapshot.val().des,
+                dep.value = snapshot.val().dep,
+                doj.value = snapshot.val().doj
+            }
+            else{
+              alert("No data found");
+            }
+          })
+          .catch((error)=>{
+                alert(error);
+            });
+          }
+          
+          function delete_user(){
+            remove(ref(database, "users/" + username.value))
+            .then(()=>{
+                alert("User deleted!")
+                window.location = "./index.html"
+            })
+            .catch((error)=>{
+                alert(error)
+            });
+          }
+
+        save.addEventListener('click', show_user);
+        dltbtn.addEventListener('click', delete_user);
+
+</script>
+
+</html>

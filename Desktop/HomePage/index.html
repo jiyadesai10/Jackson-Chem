@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html>
+
+<title>Jackson Home</title>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: white;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+
+
+
+        /* Full-width input fields */
+        input[type=text],
+        input[type=password],
+        input[type=email] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+        }
+
+        input[type=text]:focus,
+        input[type=password]:focus,
+        input[type=email]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+        /* Overwrite default styles of hr */
+        hr {
+            border: 1px solid #f1f1f1;
+            margin-bottom: 25px;
+        }
+
+        /* Set a style for the submit button */
+        .registerbtn {
+            background-color: #00B6FF;
+            border-radius: 5px;
+            color: white;
+            padding: 16px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+
+        .registerbtn:hover {
+            opacity: 1;
+        }
+
+        /* Add a blue text color to links */
+        a {
+            color: dodgerblue;
+        }
+
+        /* Set a grey background color and center the text of the "sign in" section */
+        .signin {
+            background-color: #f1f1f1;
+            text-align: center;
+        }
+
+
+
+
+
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            background: #00B6FF;
+            border-radius: 10px;
+            margin-top: 40px;
+            box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.331);
+        }
+
+        .center h1 {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 1px solid silver;
+            color: white;
+        }
+
+        .center form {
+            padding: 0 40px;
+            box-sizing: border-box;
+        }
+
+        form .txt_field {
+            position: relative;
+            background-color: white;
+            border-radius: 12px;
+            transition: 0.5s;
+            box-shadow: 0px 2px 2px 0px rgb(126, 126, 126);
+
+            margin: 30px 0;
+        }
+
+        .txt_field input {
+            width: 100%;
+            padding: 0 5px;
+            height: 40px;
+            font-size: 16px;
+            border: none;
+            background: none;
+            outline: none;
+        }
+
+        .txt_field label {
+            position: absolute;
+            top: 50%;
+            left: 5px;
+            color: #adadad;
+            transform: translateY(-50%);
+            font-size: 16px;
+            pointer-events: none;
+            transition: .5s;
+        }
+
+        .txt_field span::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: #2691d9;
+            transition: .5s;
+        }
+
+        .txt_field input:focus~label,
+        .txt_field input:valid~label {
+            top: -5px;
+            color: #2691d9;
+
+        }
+
+        .txt_field input:focus~span::before,
+        .txt_field input:valid~span::before {
+            width: 100%;
+        }
+
+        .pass {
+            margin: -5px 0 20px 5px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .pass:hover {
+            text-decoration: underline;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            height: 50px;
+            border-style: none;
+            background: #2691d9;
+            border-radius: 25px;
+            font-size: 18px;
+            color: #e9f4fb;
+            font-weight: 700;
+            cursor: pointer;
+            margin-bottom: 30px;
+            outline: none;
+        }
+
+        input[type="submit"]:hover {
+            border-style: none;
+            transition: .5s;
+            -webkit-box-shadow: 0px 2px 2px 0px #555;
+
+        }
+
+        .signup_link {
+            margin: 30px 0;
+            text-align: center;
+            font-size: 16px;
+            color: white;
+        }
+
+        .signup_link a {
+            color: oldlace;
+            text-decoration: none;
+        }
+
+        .signup_link a:hover {
+            text-decoration: underline;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #00B6FF;
+        }
+
+        li {
+            padding-right: 0;
+            padding-left: 50px;
+            padding-top: 28px;
+            padding-bottom: 28px;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+        }
+
+
+        i {
+            margin-left: 5px;
+            padding-top: 2px;
+            margin-right: 20px;
+        }
+
+
+        /* W3Schools login form details */
+        input[type=text],
+        input[type=password],
+        input[type=email] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            background-color: #f1f1f1;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        /* Set a style for all buttons */
+        button.login {
+            float: right;
+            background-color: #00B6FF;
+            color: white;
+            /* padding: 0px; */
+            margin-top: 30px;
+            text-align: center;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button.User {
+            background-color: #00B6FF;
+            color: white;
+            height: 150px;
+            width: 25%;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            /* padding: 0px; */
+            margin-top: 30px;
+            text-align: center;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button.loginbutton {
+            background-color: #00B6FF;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+
+
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        /* Extra styles for the cancel button */
+        .cancelbtn {
+            width: auto;
+            padding: 10px 18px;
+            background-color: #f44336;
+            border: none;
+        }
+
+        /* Center the image and position the close button */
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+            position: relative;
+        }
+
+        img.avatar {
+            width: 40%;
+            /* border-radius: 50%; */
+        }
+
+        .container2 {
+            padding: 16px;
+        }
+
+        .container4 {
+            margin-top: 6%;
+            padding: 16px;
+        }
+
+        .maincontainer {
+            display: block;
+            height: 100%;
+            padding-top: 60px;
+            padding-left: 120px;
+        }
+
+        .bottom {
+            margin-top: 5%;
+        }
+
+        .adduser,
+        .attendance {
+            display: inline;
+        }
+
+        .updatesalary,
+        .findauser,
+        .AboutUs,
+        .changepassword {
+            display: inline;
+            margin-left: 8%;
+        }
+
+        span.psw {
+            float: right;
+            /* padding-top: 16px; */
+        }
+
+        /* The Modal (background) */
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /*Black w/ opacity */
+            padding-top: 15%;
+        }
+
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto 15% auto;
+            /* 5% from the top, 15% from the bottom and centered */
+            border: 1px solid #888;
+            width: 80%;
+            /* Could be more or less, depending on screen size */
+        }
+
+        /* The Close Button (x) */
+        .close {
+            position: absolute;
+            right: 25px;
+            top: 0;
+            color: #000;
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: red;
+            cursor: pointer;
+        }
+
+        /* Add Zoom Animation */
+        .animate {
+            -webkit-animation: animatezoom 0.6s;
+            animation: animatezoom 0.6s
+        }
+
+        @-webkit-keyframes animatezoom {
+            from {
+                -webkit-transform: scale(0)
+            }
+
+            to {
+                -webkit-transform: scale(1)
+            }
+        }
+
+        @keyframes animatezoom {
+            from {
+                transform: scale(0)
+            }
+
+            to {
+                transform: scale(1)
+            }
+        }
+
+        /* Change styles for span and cancel button on extra small screens */
+        @media screen and (max-width: 300px) {
+            span.psw {
+                display: block;
+                float: none;
+            }
+
+            .cancelbtn {
+                width: 100%;
+            }
+        }
+
+        #myInput {
+            background-image: url('/css/searchicon.png');
+            background-position: 10px 12px;
+            background-repeat: no-repeat;
+            width: 100%;
+            font-size: 16px;
+            padding: 12px 20px 12px 40px;
+            border: 1px solid #ddd;
+            margin-bottom: 12px;
+        }
+
+        #myUL {
+            list-style-type: none;
+            background-color: white;
+            padding: 0;
+            margin: 0;
+        }
+
+        #myUL li a {
+            border: 1px solid #ddd;
+            margin-top: -1px;
+            /* Prevent double borders */
+            background-color: #f6f6f6;
+            padding: 12px;
+            text-decoration: none;
+            margin: 2px;
+            font-size: 18px;
+            color: black;
+            display: block
+        }
+
+        #myUL li a:hover:not(.header) {
+            background-color: #eee;
+        }
+
+        /* notifications css */
+
+        .button1:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .icon {
+            cursor: pointer;
+        }
+
+        .icon img {
+            display: inline-block;
+            width: 40px;
+            margin-top: 40px;
+        }
+
+        .icon:hover {
+            opacity: 1;
+        }
+
+        .logo {
+            flex: 1;
+            margin-left: 50px;
+            font-size: 20px;
+        }
+
+        .notifi-box {
+            background-color: white;
+            width: 300px;
+            height: 0px;
+            opacity: 0;
+            position: absolute;
+            top: 100px;
+            right: 35px;
+            transition: 1s opacity, 250ms height;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .notifi-box h2 {
+            font-size: 14px;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            color: black;
+            font-weight: 500;
+        }
+
+        .notifi-box h2 span {
+            color: black;
+        }
+
+        .notifi-item {
+            display: flex;
+            border-bottom: 1px solid #eee;
+            padding: 15px 5px;
+            cursor: pointer;
+        }
+
+        .notifi-item:hover {
+            background-color: #00B6FF;
+        }
+
+        .notifi-item img {
+            display: block;
+            width: 50px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        .notifi-box .header {
+            background-color: #00B6FF;
+        }
+
+        .notifi-item .text h4 {
+            color: black;
+            font-size: 16px;
+        }
+
+        .notifi-item .text p {
+            color: black;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <ul>
+        <li style="float:left; padding: 0;"><a href="index.html"
+                style="width:fit-content; padding: 0%; background-color: #fff;"><img src="./images/logo.png"
+                    alt="JacksonLogo" width="300" height="85" margin="0"></a></li>
+        <li style="float: right; border: none;"><a href="login.html" style="font-size: 20px;">Logout<i
+                    class="fa fa-sign-out fa-lg"></i></a></li>
+    </ul>
+
+    <div class="maincontainer">
+        <div class="top">
+
+            <div class="adduser">
+                <button class="User" onclick="document.getElementById('id01').style.display='block'">Add User <i
+                        class="fa fa-lg fa-user-o" aria-hidden="true"></i></button>
+                <div id="id01" class="modal">
+                    <form class="modal-content animate" action="../AddUserPage/adduser.html" name="myform">
+                        <div class="imgcontainer">
+                            <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                                title="Close Modal">&times;</span>
+                        </div>
+
+                        <div class="container2">
+                            <label for="username"><b>Username</b></label>
+                            <input type="text" placeholder="Enter Username" name="username" id="username" method="post"
+                                required>
+
+                            <label for="email"><b>Email</b></label>
+                            <input type="email" placeholder="Enter Email" name="email" id="email" method="post"
+                                required>
+
+                            <label for="psw"><b>Password</b></label>
+                            <input type="password" placeholder="Enter Password" name="psw" id="psw" method="post"
+                                required>
+                            <hr>
+                            <button type="button" id="submit" class="registerbtn">Register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="updatesalary">
+                <form action="./updatesalary.html" style="display: inline;">
+                    <button class="User">Update Salary <i class="fa fa-lg fa-inr" aria-hidden="true"></i></button>
+                </form>
+            </div>
+
+            <div class="findauser">
+                <form action="./searchuser.html" style="display: inline">
+                    <button type="submit" class="User">Search User <i class="fa fa-lg fa-search"
+                            aria-hidden="true"></i></button>
+                </form>
+
+            </div>
+        </div>
+
+        <div class="bottom">
+
+            <form action="./attendance.html" style="display: inline">
+                <div class="attendance">
+                    <button class="User">Attendance <i class="fa fa-lg fa-address-book-o"
+                            aria-hidden="true"></i></button>
+                </div>
+            </form>
+
+            <form action="./changepass.html" style="display: inline">
+                <div class="changepassword">
+                    <button class="User">Change Password <i class="fa fa-lg fa-unlock-alt"
+                            aria-hidden="true"></i></button>
+                </div>
+            </form>
+
+
+            <div class="AboutUs">
+                <form action="./deleteuser.html" style="display: inline">
+                    <button class="User">Delete User <i class="fa fa-lg fa-trash-o" aria-hidden="true"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+    import {
+        getAuth,
+        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword,
+        signOut
+    } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+    import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyD9yGArkz7oubGAtVO2FbwThGikxhJY3hw",
+        authDomain: "trialproject-9f7bf.firebaseapp.com",
+        databaseURL: "https://trialproject-9f7bf-default-rtdb.firebaseio.com",
+        projectId: "trialproject-9f7bf",
+        storageBucket: "trialproject-9f7bf.appspot.com",
+        messagingSenderId: "188371728581",
+        appId: "1:188371728581:web:f22681635b4def702098ac",
+        measurementId: "G-BCN320ENDH"
+    };
+
+
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth();
+    const database = getDatabase(app);
+
+    submit.addEventListener('click', (e) => {
+
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('psw').value;
+        var username = document.getElementById('username').value;
+        var fn = "";
+        var ln = "";
+        var mob = "";
+        var add1 = "";
+        var add2 = "";
+        var des = "";
+        var dep = "";
+        var dob = "";
+        var doj = "";
+        var aadhar = "";
+        var pf = "";
+        var acc = "";
+        var uan = "";
+        var esi = "";
+        var pan = "";
+        var img = "";
+        var fathern = "";
+        var fathermob = "";
+        var fatherdob = "";
+        var fatheraadhar = "";
+        var mothern = "";
+        var mothermob = "";
+        var motherdob = "";
+        var motheraadhar = "";
+        var childn = "";
+        var childmob = "";
+        var childdob = "";
+        var childaadhar = "";
+        var siblingn = "";
+        var siblingmob = "";
+        var siblingdob = "";
+        var siblingaadhar = "";
+        var bg = "";
+        var mh = "";
+        var nod = "";
+        var lcd = "";
+        var ot = "";
+        var salary = parseInt("0");
+        var jan = parseInt("0");
+        var feb = parseInt("0");
+        var mar = parseInt("0");
+        var apr = parseInt("0");
+        var may = parseInt("0");
+        var jun = parseInt("0");
+        var jul = parseInt("0");
+        var aug = parseInt("0");
+        var sep = parseInt("0");
+        var oct = parseInt("0");
+        var nov = parseInt("0");
+        var dec = parseInt("0");
+
+
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+
+                const user = userCredential.user;
+
+                set(ref(database, 'users/' + username), {
+                    email: email,
+                    password: password,
+                    username: username,
+                    fn: fn,
+                    ln: ln,
+                    mob: mob,
+                    add1: add1,
+                    add2: add2,
+                    des: des,
+                    dep: dep,
+                    dob: dob,
+                    doj: doj,
+                    pf: pf,
+                    aadhar: aadhar,
+                    acc: acc,
+                    uan: uan,
+                    esi: esi,
+                    pan: pan,
+                    img: img,
+                    fathern: fathern,
+                    fathermob: fathermob,
+                    fatherdob: fatherdob,
+                    fatheraadhar: fatheraadhar,
+                    mothern: mothern,
+                    mothermob: mothermob,
+                    motherdob: motherdob,
+                    motheraadhar: motheraadhar,
+                    childn: childn,
+                    childmob: childmob,
+                    childdob: childdob,
+                    childaadhar: childaadhar,
+                    siblingn: siblingn,
+                    siblingmob: siblingmob,
+                    siblingdob: siblingdob,
+                    siblingaadhar: siblingaadhar,
+                    bg: bg,
+                    mh: mh,
+                    nod: nod,
+                    lcd: lcd,
+                    ot: ot,
+                    salary: salary,
+                    jan: jan,
+                    feb: feb,
+                    mar: mar,
+                    apr: apr,
+                    may: may,
+                    jun: jun,
+                    jul: jul,
+                    aug: aug,
+                    sep: sep,
+                    oct: oct,
+                    nov: nov,
+                    dec: dec
+
+                })
+                    .then(() => {
+
+                        alert('user created successfully');
+                        window.location = "./adduser.html"
+
+                    })
+                    .catch((error) => {
+
+                        alert(error);
+                    });
+
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                alert(errorMessage);
+            });
+    });
+
+
+</script>
+<script type="text/javascript">
+    var box = document.getElementById('box');
+    var down = false;
+
+
+    function toggleNotifi() {
+        if (down) {
+            box.style.height = '0px';
+            box.style.opacity = 0;
+            down = false;
+        } else {
+            box.style.height = '1000px';
+            box.style.opacity = 1;
+            down = true;
+        }
+    }
+</script>
+
+</html>
